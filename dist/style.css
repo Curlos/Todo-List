@@ -17,7 +17,8 @@ body {
 .taskItem {
     padding: 10px;
     margin: 3px;
-    border-bottom: 1px solid hsl(0, 0%, 31%);
+    border: 1px solid hsl(0, 0%, 31%);
+    border-radius: 7px;
 }
 
 .addTaskForm {

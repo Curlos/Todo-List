@@ -67,11 +67,23 @@ const displayNewTask = (taskName) => {
     const newTaskElem = document.createElement('div')
     const taskNameText = document.createTextNode(taskName)
 
+    const checkBoxInput = document.createElement('input')
+    checkBoxInput.setAttribute('type', 'checkbox')
+    checkBoxInput.addEventListener('click', toggleCompleteTask)
+
     newTaskElem.classList.add('taskItem')
+    newTaskElem.append(checkBoxInput)
     newTaskElem.append(taskNameText)
     taskItemList.append(newTaskElem)
 
-    console.log(taskItemList)
+}
+
+const toggleCompleteTask = (event) => {
+    console.log(event.target.parentElement)
+}
+
+const displayCompleteTask = () => {
+
 }
 
 const simpleTask = new TodoItem('title', false)
