@@ -55,11 +55,13 @@ const editTodoItem = () => {
 const addTask = (event) => {
     event.preventDefault()
     const taskName = taskInput.value
-    console.log(taskName)
+    const taskItem = new TodoItem(taskName, false)
+    allTasks.push(taskItem)
+
     displayNewTask(taskName)
     taskInput.value = ''
 
-    allTasks.push()
+    displayAllTasks()
 }
 
 // DOM manipulation for displaying a newly added task
@@ -86,6 +88,13 @@ const displayCompleteTask = () => {
 
 }
 
+const displayAllTasks = () => {
+    for (let task of allTasks) {
+        console.log(task.getName())
+        console.log(task)
+    }
+}
+
 const simpleTask = new TodoItem('title', false)
 console.log(simpleTask.getName())
 simpleTask.setName('newName bois')
@@ -96,5 +105,4 @@ console.log(simpleTask)
 
 taskInput.addEventListener('submit', addTask)
 addTaskButton.addEventListener('click', addTask)
-
-console.log('Add task')
+displayAllTasks()
