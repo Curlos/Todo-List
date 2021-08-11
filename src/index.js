@@ -62,6 +62,7 @@ const addTask = (event) => {
     taskInput.value = ''
 
     displayAllTasks()
+    console.log(allTasks)
 }
 
 // DOM manipulation for displaying a newly added task
@@ -73,9 +74,23 @@ const displayNewTask = (taskName) => {
     checkBoxInput.setAttribute('type', 'checkbox')
     checkBoxInput.addEventListener('click', toggleCompleteTask)
 
+    const editIcon = document.createElement('i')
+    editIcon.classList.add('fas')
+    editIcon.classList.add('fa-edit')
+
+    const taskLeftSide = document.createElement('span')
+    taskLeftSide.classList.add('taskLeftSide')
+
+    const taskRightSide = document.createElement('span')
+    taskRightSide.classList.add('taskRightSide')
+
+    taskLeftSide.append(checkBoxInput)
+    taskLeftSide.append(taskNameText)
+    taskRightSide.append(editIcon)
+
     newTaskElem.classList.add('taskItem')
-    newTaskElem.append(checkBoxInput)
-    newTaskElem.append(taskNameText)
+    newTaskElem.append(taskLeftSide)
+    newTaskElem.append(taskRightSide)
     taskItemList.append(newTaskElem)
 
 }
@@ -95,6 +110,17 @@ const displayAllTasks = () => {
     }
 }
 
+const generateTestTasks = () => {
+    const testTasks = ['display tasks from tasks array', 'style task when checked completed', 'Let users edit tasks to change their name', 'Let users edit tasks to change their priority']
+
+    for (let testTask of testTasks) {
+        const taskItem = new TodoItem(testTask)
+        allTasks.push(taskItem)
+        displayNewTask(testTask)
+        allTasks.push(taskItem)
+    }
+}
+
 const simpleTask = new TodoItem('title', false)
 console.log(simpleTask.getName())
 simpleTask.setName('newName bois')
@@ -105,4 +131,4 @@ console.log(simpleTask)
 
 taskInput.addEventListener('submit', addTask)
 addTaskButton.addEventListener('click', addTask)
-displayAllTasks()
+generateTestTasks()
