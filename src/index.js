@@ -1,6 +1,6 @@
 const taskItemList = document.querySelector('.taskItemList')
 const taskInput = document.querySelector('.taskInput')
-const addTaskButton = document.querySelector('.addTaskButton')
+const addTaskButtons = document.querySelectorAll('.addTaskButton')
 const modal = document.querySelector('.modal')
 
 const allTasks = []
@@ -65,6 +65,7 @@ const addTask = (event) => {
 
     displayAllTasks()
     console.log(allTasks)
+    displayAddTaskForm()
 }
 
 const displayAddTaskForm = () => {
@@ -91,6 +92,8 @@ const displayAddTaskForm = () => {
     addTaskForm.append(formChildElems)
 
 }
+
+
 
 /*
 
@@ -173,6 +176,10 @@ const windowOnClick = (event) => {
     } 
 }
 
+for (button of addTaskButtons) {
+    button.addEventListener('click', addTask)
+}
+
 const simpleTask = new TodoItem('title', false)
 console.log(simpleTask.getName())
 simpleTask.setName('newName bois')
@@ -182,7 +189,6 @@ console.log(simpleTask.isComplete())
 console.log(simpleTask)
 
 taskInput.addEventListener('submit', addTask)
-addTaskButton.addEventListener('click', addTask)
 window.addEventListener('click', windowOnClick)
 
 generateTestTasks()

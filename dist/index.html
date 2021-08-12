@@ -35,7 +35,7 @@
     <div class='tasksContainer'>
         <div class="listTitle">
             <span class="listType">Today</span>
-            <span class="listDate">Aug 11</span>
+            <span class="listDate">Aug 12</span>
         </div>
         <div class="taskItemList">
 
@@ -44,7 +44,25 @@
                 <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
                 <br/>
                 <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
+
+                <span>
+                    <span class="addTaskLeftOptions">
+                        <button class="datePickerButton">Today</button>
+                        <button class="listTypeButton">Inbox</button>
+                    </span>
+
+                    <span class="addTaskRightOptions">
+                        <i class="fas fa-tag"></i>
+                        <i class="far fa-flag"></i>
+                        <i class="far fa-clock"></i>
+                    </span>
+                </span>
             </div>
+
+            <span class="addTaskButtons">
+                <button class="addTaskRedButton">Add task</button>
+                <button class="cancelAddTask">Cancel</button>
+            </span>
         <div>
 
         </div>
@@ -71,7 +89,7 @@
                 </div>
 
             </div class="addTaskForm addTaskFormModal">
-                <div class="formChildElems">
+                <div class="formChildElems formChildElemsModal">
                     <input type="text" id="taskNameInputModal" class="taskNameInput taskInput taskInputModal" placeholder="Task name">
                     <br/>
                     <input type="text" id="taskDescriptionInput" class="taskDescriptionInput taskDescriptionInputModal" placeholder="Description">

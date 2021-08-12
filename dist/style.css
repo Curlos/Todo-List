@@ -11,11 +11,12 @@ body {
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #DA4C3F;
-    overflow: hidden;
     padding: 10px;
-    height: 10%;
-    overflow: hidden;
+    height: 20px;
+    z-index: 2;
     padding-left: 41px;
+    position: fixed;
+    width: 100%;
 }
 
 /* Style the links inside the navigation bar */
@@ -24,6 +25,19 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   border-radius: 10px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    color: #FFCD08;
+}
+
+.topnavRight {
+    float: right;
+}
+
+.fa-user-circle {
+    padding-right: 40px;
 }
 
 .addTaskForm {
@@ -75,6 +89,10 @@ button:hover {
     padding-bottom: 30px;
 }
 
+.listTitle {
+    padding: 15px;
+}
+
 
 
 .addTaskForm .fa-plus {
@@ -82,28 +100,21 @@ button:hover {
     margin-right: 7px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  color: #FFCD08;
-}
-
-.topnavRight {
-    float: right;
-}
-
 .sidenav {
-    height: 90%;
+    height: 97%;
     width: 15%;
     position: fixed;
     left: 0;
     background-color: #282828;
     overflow-x: hidden;
     padding-top: 20px;
+    margin-top: 25px;
 }
 
 .sidenav a {
     padding: 10px 10px 10px 16px;
     margin-left: 40px;
+    margin-right: 5px;
     text-decoration: none;
     color: #ffffff;
     display: block;
@@ -267,6 +278,72 @@ button:hover {
 
 .addTaskFormModal {
     background-color: white;
+}
+
+.taskInputModal {
+    width: 500px;
+}
+
+.formChildElemsModal {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.addTaskButtons {
+    display: flex;
+    padding: 10px;
+    width: 50%;
+}
+
+.addTaskRedButton {
+    padding: 10px 12px 10px 12px;
+    background-color: #DA4C3F;
+    color: white;
+    border-radius: 7px;
+}
+
+.dimButton {
+    background-color: rgba(85%, 30%, 25%, 0.4);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.cancelAddTask {
+    margin-left: 10px;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    color: white;
+}
+
+.cancelAddTask:hover {
+    background-color: #282828;
+}
+
+.addTaskLeftOptions, .addTaskRightOptions {
+    margin: 12px;
+}
+
+.datePickerButton, .listTypeButton {
+    color: white;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.datePickerButton {
+    margin-right: 5px;
+}
+
+.listTypeButton {
+    margin-left: 0px;
+}
+
+.addTaskRightOptions {
+    float: right;
+}
+
+.fa-tag, .fa-flag {
+    margin-right: 15px;
 }
 
 @media screen and (max-height: 450px) {
