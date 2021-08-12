@@ -11,9 +11,19 @@
 <body>
 
     <div class="topnav">
-        <a id="toggleSidebarButton"><i class="fas fa-bars"></i></a>
-        <a id="homeViewButton"><i class="fas fa-home"></i></a>
-        <a id="searchTasksButton"><i class="fas fa-search"></i></a>
+        <span class="topnavLeft">
+            <a id="toggleSidebarButton"><i class="fas fa-bars"></i></a>
+            <a id="homeViewButton"><i class="fas fa-home"></i></a>
+            <a id="searchTasksButton"><i class="fas fa-search"></i></a>
+        </span>
+
+        <span class="topnavRight">
+            <a id="quickAddTaskButton"><i class="fas fa-plus"></i></a>
+            <a id="productivityProgressButton"><i class="far fa-circle"></i></a>
+            <a id="helpButton"><i class="far fa-question-circle"></i></a>
+            <a id="notificationsButton"><i class="far fa-bell"></i></a>
+            <a id="userProfileButton"><i class="far fa-user-circle"></i></a>
+        </span>
     </div>
 
     <div class="sidenav">
@@ -23,15 +33,24 @@
     </div>
       
     <div class='tasksContainer'>
+        <div class="listTitle">
+            <span class="listType">Today</span>
+            <span class="listDate">Aug 11</span>
+        </div>
         <div class="taskItemList">
+
+        </div class="addTaskForm">
+            <div class="formChildElems">
+                <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
+                <br/>
+                <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
+            </div>
+        <div>
 
         </div>
         <form id="form" class="addTaskForm">
-            <label>+ Add task <input type="text" class="taskInput"></label>
-            <br><br>
-            <button class="addTaskButton">Add task</button>
-            <input type="checkbox">
-          </form>
+            <button class="addTaskButton"><i class="fas fa-plus"></i> Add task</button>
+        </form>
     </div>
     <script src='main.js'></script>
 </body>
