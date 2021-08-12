@@ -1,6 +1,7 @@
 const taskItemList = document.querySelector('.taskItemList')
 const taskInput = document.querySelector('.taskInput')
 const addTaskButton = document.querySelector('.addTaskButton')
+const modal = document.querySelector('.modal')
 
 const allTasks = []
 const taskID = 0
@@ -91,6 +92,8 @@ const displayNewTask = (taskName) => {
     newTaskElem.classList.add('taskItem')
     newTaskElem.append(taskLeftSide)
     newTaskElem.append(taskRightSide)
+
+    newTaskElem.addEventListener('click', toggleModal)
     taskItemList.append(newTaskElem)
 
 }
@@ -121,6 +124,17 @@ const generateTestTasks = () => {
     }
 }
 
+const toggleModal = () => {
+    modal.classList.toggle('show-modal')
+    console.log('hello wrold')
+}
+
+const windowOnClick = (event) => {
+    if (event.target === modal) {
+        toggleModal()
+    } 
+}
+
 const simpleTask = new TodoItem('title', false)
 console.log(simpleTask.getName())
 simpleTask.setName('newName bois')
@@ -131,4 +145,6 @@ console.log(simpleTask)
 
 taskInput.addEventListener('submit', addTask)
 addTaskButton.addEventListener('click', addTask)
+window.addEventListener('click', windowOnClick)
+
 generateTestTasks()
