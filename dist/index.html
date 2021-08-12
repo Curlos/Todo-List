@@ -53,15 +53,38 @@
         </form>
     </div>
 
-    <div class="modal">
+    <div class="modal show-modal">
         <div class="modal-content">
-            <div class="bookSearchModal">
-                <span class="searchBookInputContainer">
-                  <label for="bookTitle">Search book</label>
-                  <input class="u-full-width" type="text" placeholder="Book Author" id="searchInput">
-                </span>
-                <div class="searchResults" id="searchResults"></div>
+            <div class="addTaskModal">
+                <div class="modalTaskNameTitle">
+                    <input type="checkbox">new task
+                </div>
+
+                <div class="modalDescriptionInput">
+                    <input type="checkbox">Description
+                </div>
+
+                <div class="optionsNavbar">
+                    <span class="modalSubtasks selectedOptionModal">Sub-tasks</span>
+                    <span class="modalComments">Comments</span>
+                    <span class="modalActivity">Activity</span>
+                </div>
+
+            </div class="addTaskForm addTaskFormModal">
+                <div class="formChildElems">
+                    <input type="text" id="taskNameInputModal" class="taskNameInput taskInput taskInputModal" placeholder="Task name">
+                    <br/>
+                    <input type="text" id="taskDescriptionInput" class="taskDescriptionInput taskDescriptionInputModal" placeholder="Description">
+                </div>
+            <div>
+
+                <form id="form" class="addTaskForm">
+                    <button class="addTaskButton addTaskButtonModal"><i class="fas fa-plus"></i> Add task</button>
+                </form>
+
+                
               </div>
+              
         </div>
     </div>
     <script src='main.js'></script>

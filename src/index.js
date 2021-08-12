@@ -55,6 +55,7 @@ const editTodoItem = () => {
 // Logic for adding task
 const addTask = (event) => {
     event.preventDefault()
+    //displayAddTaskForm()
     const taskName = taskInput.value
     const taskItem = new TodoItem(taskName, false)
     allTasks.push(taskItem)
@@ -65,6 +66,43 @@ const addTask = (event) => {
     displayAllTasks()
     console.log(allTasks)
 }
+
+const displayAddTaskForm = () => {
+    const addTaskForm = document.createElement('div')
+    addTaskForm.classList.add('addTaskForm')
+
+    const formChildElems = document.createElement('div')
+    formChildElems.classList.add('formChildElems')
+
+    const taskNameInput = document.createElement('input')
+    taskNameInput.setAttribute('type', 'text')
+    taskNameInput.setAttribute('id', 'taskNameInput')
+    taskNameInput.setAttribute('placeholder', 'Task name')
+    taskNameInput.classList.add('taskNameInput')
+    taskNameInput.classList.add('taskInput')
+
+    const taskDescriptionInput = document.createElement('input')
+    taskDescriptionInput.setAttribute('type', 'text')
+    taskDescriptionInput.setAttribute('id', 'taskDescriptionInput')
+    taskDescriptionInput.setAttribute('placeholder', 'Description')
+
+    formChildElems.append(taskNameInput)
+    formChildElems.append(taskDescriptionInput)
+    addTaskForm.append(formChildElems)
+
+}
+
+/*
+
+</div class="addTaskForm">
+    <div class="formChildElems">
+        <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
+        <br/>
+        <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
+    </div>
+<div>
+
+*/
 
 // DOM manipulation for displaying a newly added task
 const displayNewTask = (taskName) => {
