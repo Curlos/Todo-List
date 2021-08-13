@@ -64,6 +64,7 @@ button:hover {
     background-color: #171717;
     border-radius: 5px;
     border: 1px solid gray;
+    width: 100%;
 }
 
 .formChildElems input {
