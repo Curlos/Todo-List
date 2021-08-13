@@ -40,7 +40,7 @@ body {
     padding-right: 40px;
 }
 
-.addTaskForm {
+.addTaskFormButton, .addTaskForm {
     width: 50%;
 }
 
@@ -62,7 +62,6 @@ button:hover {
 
 .formChildElems {
     background-color: #171717;
-    width: 50%;
     border-radius: 5px;
     border: 1px solid gray;
 }
@@ -95,7 +94,7 @@ button:hover {
 
 
 
-.addTaskForm .fa-plus {
+.addTaskFormButton .fa-plus {
     color: #DA4C3F;
     margin-right: 7px;
 }
@@ -188,8 +187,12 @@ button:hover {
     color: gray;
 }
 
-.addTaskForm {
+.addTaskFormButton {
     margin: 8px;
+}
+
+.hidden {
+    display: none;
 }
 
 .fa-edit:hover {
@@ -278,6 +281,15 @@ button:hover {
 
 .addTaskFormModal {
     background-color: white;
+}
+
+.modal .formChildElems {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.modal .addTaskBottomOptions {
+    margin: 10px;
 }
 
 .taskInputModal {

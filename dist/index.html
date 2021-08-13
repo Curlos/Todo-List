@@ -39,39 +39,16 @@
         </div>
         <div class="taskItemList">
 
-        </div class="addTaskForm">
-            <div class="formChildElems">
-                <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
-                <br/>
-                <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
-
-                <span>
-                    <span class="addTaskLeftOptions">
-                        <button class="datePickerButton">Today</button>
-                        <button class="listTypeButton">Inbox</button>
-                    </span>
-
-                    <span class="addTaskRightOptions">
-                        <i class="fas fa-tag"></i>
-                        <i class="far fa-flag"></i>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </span>
-            </div>
-
-            <span class="addTaskButtons">
-                <button class="addTaskRedButton">Add task</button>
-                <button class="cancelAddTask">Cancel</button>
-            </span>
-        <div>
-
         </div>
-        <form id="form" class="addTaskForm">
-            <button class="addTaskButton"><i class="fas fa-plus"></i> Add task</button>
+
+        <div class="addTaskForm"></div>
+            
+        <form id="form" class="addTaskFormButton">
+            <button class="displayFormButton"><i class="fas fa-plus"></i> Add task</button>
         </form>
     </div>
 
-    <div class="modal show-modal">
+    <div class="modal">
         <div class="modal-content">
             <div class="addTaskModal">
                 <div class="modalTaskNameTitle">
@@ -89,15 +66,37 @@
                 </div>
 
             </div class="addTaskForm addTaskFormModal">
-                <div class="formChildElems formChildElemsModal">
-                    <input type="text" id="taskNameInputModal" class="taskNameInput taskInput taskInputModal" placeholder="Task name">
+                <div class="formChildElems">
+                    <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
                     <br/>
-                    <input type="text" id="taskDescriptionInput" class="taskDescriptionInput taskDescriptionInputModal" placeholder="Description">
+                    <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
+
+                    <div class="subtasks">
+
+                    </div>
+
+                    <span class="addTaskBottomOptions">
+                        <span class="addTaskLeftOptions">
+                            <button class="datePickerButton">Today</button>
+                            <button class="listTypeButton">Inbox</button>
+                        </span>
+
+                        <span class="addTaskRightOptions">
+                            <i class="fas fa-tag"></i>
+                            <i class="far fa-flag"></i>
+                            <i class="far fa-clock"></i>
+                        </span>
+                    </span>
                 </div>
-            <div>
+
+            <span class="addTaskButtons">
+                <button class="addTaskRedButton">Add task</button>
+                <button class="cancelAddTask">Cancel</button>
+            </span>
+        <div>
 
                 <form id="form" class="addTaskForm">
-                    <button class="addTaskButton addTaskButtonModal"><i class="fas fa-plus"></i> Add task</button>
+                    <button class="displayFormButton addTaskButtonModal"><i class="fas fa-plus"></i> Add task</button>
                 </form>
 
                 

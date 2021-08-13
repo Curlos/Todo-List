@@ -1,6 +1,9 @@
+/* eslint-disable no-restricted-syntax */
 const taskItemList = document.querySelector('.taskItemList');
 const taskInput = document.querySelector('.taskInput');
-const addTaskButtons = document.querySelectorAll('.addTaskButton');
+const displayFormButtons = document.querySelectorAll('.displayFormButton');
+const addTaskRedButtons = document.querySelectorAll('.addTaskRedButton');
+const cancelAddTaskButtons = document.querySelectorAll('.cancelAddTask');
 const modal = document.querySelector('.modal');
 
 const allTasks = [];
@@ -72,41 +75,18 @@ const addTask = (event) => {
   displayAddTaskForm();
 };
 
-const displayAddTaskForm = () => {
-  const addTaskForm = document.createElement('div');
-  addTaskForm.classList.add('addTaskForm');
+const cancelAddTask = (event) => {
+  const cancelAddTaskButton = event.target;
 
-  const formChildElems = document.createElement('div');
-  formChildElems.classList.add('formChildElems');
+  const addTaskForm = cancelAddTaskButton.parentElement.parentElement.parentElement;
 
-  const taskNameInput = document.createElement('input');
-  taskNameInput.setAttribute('type', 'text');
-  taskNameInput.setAttribute('id', 'taskNameInput');
-  taskNameInput.setAttribute('placeholder', 'Task name');
-  taskNameInput.classList.add('taskNameInput');
-  taskNameInput.classList.add('taskInput');
+  const addTaskFormButton = document.querySelector('.addTaskFormButton');
 
-  const taskDescriptionInput = document.createElement('input');
-  taskDescriptionInput.setAttribute('type', 'text');
-  taskDescriptionInput.setAttribute('id', 'taskDescriptionInput');
-  taskDescriptionInput.setAttribute('placeholder', 'Description');
+  console.log(addTaskFormButton);
 
-  formChildElems.append(taskNameInput);
-  formChildElems.append(taskDescriptionInput);
-  addTaskForm.append(formChildElems);
+  toggleElemVisibility(addTaskForm);
+  toggleElemVisibility(addTaskFormButton);
 };
-
-/*
-
-</div class="addTaskForm">
-    <div class="formChildElems">
-        <input type="text" id="taskNameInput" class="taskNameInput taskInput" placeholder="Task name">
-        <br/>
-        <input type="text" id="taskDescriptionInput" class="taskDescriptionInput" placeholder="Description">
-    </div>
-<div>
-
-*/
 
 // DOM manipulation for displaying a newly added task
 const displayNewTask = (taskName) => {
@@ -165,6 +145,101 @@ const generateTestTasks = () => {
   }
 };
 
+const getAddTaskBottomOptions = () => {
+  const addTaskBottomOptions = document.createElement('span');
+  const addTaskLeftOptions = document.createElement('span');
+  const addTaskRightOptions = document.createElement('span');
+  const datePickerButton = document.createElement('button');
+  const listTypeButton = document.createElement('button');
+  const faTag = document.createElement('i');
+  const faFlag = document.createElement('i');
+  const faClock = document.createElement('i');
+
+  addTaskBottomOptions.classList.add('addTaskBottomOptions');
+  addTaskLeftOptions.classList.add('addTaskLeftOptions');
+
+  datePickerButton.classList.add('datePickerButton');
+  datePickerButton.textContent = 'Today';
+
+  listTypeButton.classList.add('listTypeButton');
+  listTypeButton.textContent = 'Inbox';
+
+  addTaskLeftOptions.append(datePickerButton);
+  addTaskLeftOptions.append(listTypeButton);
+
+  addTaskRightOptions.classList.add('addTaskRightOptions');
+  faTag.classList.add('fas', 'fa-tag');
+  faFlag.classList.add('fas', 'fa-flag');
+  faClock.classList.add('fas', 'fa-clock');
+
+  addTaskRightOptions.append(faTag);
+  addTaskRightOptions.append(faFlag);
+  addTaskRightOptions.append(faClock);
+
+  addTaskBottomOptions.append(addTaskLeftOptions);
+  addTaskBottomOptions.append(addTaskRightOptions);
+
+  return addTaskBottomOptions;
+};
+
+const getAddTaskButtons = () => {
+  const addTaskButtons = document.createElement('span');
+  const addTaskRedButton = document.createElement('button');
+  const cancelAddTaskButton = document.createElement('button');
+
+  addTaskButtons.classList.add('addTaskButtons');
+  addTaskRedButton.classList.add('addTaskRedButton');
+  cancelAddTaskButton.classList.add('cancelAddTask');
+
+  addTaskRedButton.textContent = 'Add task';
+  cancelAddTaskButton.textContent = 'Cancel';
+
+  addTaskRedButton.addEventListener('click', addTask);
+  cancelAddTaskButton.addEventListener('click', cancelAddTask);
+
+  addTaskButtons.append(addTaskRedButton);
+  addTaskButtons.append(cancelAddTaskButton);
+
+  return addTaskButtons;
+};
+
+const toggleElemVisibility = (elem) => {
+  elem.classList.toggle('hidden');
+};
+
+const displayAddTaskForm = (event) => {
+  event.preventDefault();
+  const button = event.target;
+  const addTaskFormButton = button.parentElement;
+  toggleElemVisibility(addTaskFormButton);
+
+  const addTaskForm = document.querySelector('.addTaskForm');
+  const formChildElems = document.createElement('div');
+  const taskNameInput = document.createElement('input');
+  const taskDescriptionInput = document.createElement('input');
+  const addTaskBottomOptions = getAddTaskBottomOptions();
+  const addTaskButtons = getAddTaskButtons();
+
+  addTaskForm.classList.add('addTaskForm');
+  formChildElems.classList.add('formChildElems');
+
+  taskNameInput.setAttribute('type', 'text');
+  taskNameInput.setAttribute('id', 'taskNameInput');
+  taskNameInput.setAttribute('placeholder', 'Task name');
+  taskNameInput.classList.add('taskNameInput');
+  taskNameInput.classList.add('taskInput');
+
+  taskDescriptionInput.setAttribute('type', 'text');
+  taskDescriptionInput.setAttribute('id', 'taskDescriptionInput');
+  taskDescriptionInput.setAttribute('placeholder', 'Description');
+
+  formChildElems.append(taskNameInput);
+  formChildElems.append(taskDescriptionInput);
+  formChildElems.append(addTaskBottomOptions);
+  formChildElems.append(addTaskButtons);
+  addTaskForm.append(formChildElems);
+};
+
 const toggleModal = () => {
   modal.classList.toggle('show-modal');
   console.log('hello wrold');
@@ -176,8 +251,8 @@ const windowOnClick = (event) => {
   }
 };
 
-for (button of addTaskButtons) {
-  button.addEventListener('click', addTask);
+for (button of displayFormButtons) {
+  button.addEventListener('click', displayAddTaskForm);
 }
 
 const simpleTask = new TodoItem('title', false);
@@ -192,3 +267,5 @@ taskInput.addEventListener('submit', addTask);
 window.addEventListener('click', windowOnClick);
 
 generateTestTasks();
+
+console.log(allTasks);
