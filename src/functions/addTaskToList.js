@@ -35,23 +35,6 @@ const displayNewTask = (taskName) => {
   taskItemList.append(newTaskElem);
 };
 
-// Logic for adding task
-const addTask = (event) => {
-  event.preventDefault();
-  // displayAddTaskForm()
-  const taskName = taskInput.value;
-  const taskItem = new TodoItem(taskName, false);
-  allTasks.push(taskItem);
-
-  displayNewTask(taskName);
-  taskInput.value = '';
-
-  displayAllTasks();
-  console.log(allTasks);
-  displayAddTaskForm();
-};
-
 module.exports = {
-  addTask,
   displayNewTask,
 };

@@ -1,7 +1,20 @@
 import { toggleElemVisibility } from './toggleElemVisibility';
-import { addTask } from './addTaskToList';
+import { addTask } from '../index';
 
-const getAddTaskButtons = () => {
+export const cancelAddTask = (event) => {
+  const cancelAddTaskButton = event.target;
+
+  const addTaskForm = cancelAddTaskButton.parentElement.parentElement.parentElement;
+
+  const addTaskFormButton = document.querySelector('.addTaskFormButton');
+
+  console.log(addTaskFormButton);
+
+  toggleElemVisibility(addTaskForm);
+  toggleElemVisibility(addTaskFormButton);
+};
+
+export const getAddTaskButtons = () => {
   const addTaskButtons = document.createElement('span');
   const addTaskRedButton = document.createElement('button');
   const cancelAddTaskButton = document.createElement('button');
@@ -20,21 +33,4 @@ const getAddTaskButtons = () => {
   addTaskButtons.append(cancelAddTaskButton);
 
   return addTaskButtons;
-};
-
-const cancelAddTask = (event) => {
-  const cancelAddTaskButton = event.target;
-
-  const addTaskForm = cancelAddTaskButton.parentElement.parentElement.parentElement;
-
-  const addTaskFormButton = document.querySelector('.addTaskFormButton');
-
-  console.log(addTaskFormButton);
-
-  toggleElemVisibility(addTaskForm);
-  toggleElemVisibility(addTaskFormButton);
-};
-
-module.exports = {
-  getAddTaskButtons,
 };

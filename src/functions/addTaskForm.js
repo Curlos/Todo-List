@@ -1,9 +1,10 @@
-import { toggleElemVisibility } from '../utils/toggleElemVisibility';
+import { toggleElemVisibility } from './toggleElemVisibility';
 import { getAddTaskBottomOptions } from './addTaskBottomOptions';
 import { getAddTaskButtons } from './addTaskButtons';
 
 const displayAddTaskForm = (event) => {
   event.preventDefault();
+  console.log('hello wrodll afdjasdfas');
   const button = event.target;
   const addTaskFormButton = button.parentElement;
   toggleElemVisibility(addTaskFormButton);
